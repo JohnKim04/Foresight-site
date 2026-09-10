@@ -1,5 +1,6 @@
 import { ArrowDownRight, ChartNoAxesCombined, Clock3, PenLine, Sparkles } from "lucide-react";
 import { PreviewShell } from "@/components/preview-shell";
+import { GuidedPreview } from "@/components/preview/guided-preview";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -78,9 +79,7 @@ export default function Home() {
           <SectionHeading id="preview-heading" title="A clearer return to a familiar moment." eyebrow="Guided preview" description="A fictional example of how a note can become a confirmed record." />
           <div className="mt-10 max-w-3xl">
             <PreviewShell>
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-5"><div><p className="text-sm font-medium text-indigo">1 of 4 · Log</p><p className="mt-1 text-sm text-muted-foreground">Simulated preview · no data is collected</p></div><span className="rounded-full bg-sage/25 px-3 py-1 text-xs font-medium text-ink">Fictional example</span></div>
-              <blockquote className="mt-7 max-w-2xl font-display text-2xl leading-snug tracking-tight text-ink sm:text-3xl">“I almost skipped my workout today, but I did 30 minutes after work. I was low-energy going in and felt calmer afterward.”</blockquote>
-              <div className="mt-8" aria-hidden="true"><div className="flex items-center justify-between text-xs text-muted-foreground"><span>Log</span><span>Clarify</span><span>Check in</span><span>Patterns</span></div><div className="mt-3 grid grid-cols-4 gap-2"><span className="h-1.5 rounded-full bg-indigo" /><span className="h-1.5 rounded-full bg-border" /><span className="h-1.5 rounded-full bg-border" /><span className="h-1.5 rounded-full bg-border" /></div></div>
+              <GuidedPreview />
             </PreviewShell>
           </div>
         </section>
