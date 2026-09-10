@@ -1,0 +1,133 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-sage: var(--sage);
+  --color-indigo: var(--indigo);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-dm-serif-display);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --shadow-elevated: var(--shadow-elevated);
+  --spacing-compact: var(--space-compact);
+  --spacing-regular: var(--space-regular);
+  --spacing-section: var(--space-section);
+}
+
+:root {
+  --canvas: #f8f6f0;
+  --ink: #1c211d;
+  --sage: #9aac96;
+  --indigo: #586a8f;
+  --border-subtle: #d9d9cf;
+  --shadow-elevated: 0 18px 45px rgb(28 33 29 / 0.1);
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --space-compact: 0.75rem;
+  --space-regular: 1.5rem;
+  --space-section: clamp(4.5rem, 9vw, 8rem);
+  --background: var(--canvas);
+  --foreground: var(--ink);
+  --card: #fffdf8;
+  --card-foreground: var(--ink);
+  --popover: #fffdf8;
+  --popover-foreground: var(--ink);
+  --primary: var(--indigo);
+  --primary-foreground: #ffffff;
+  --secondary: #eceee7;
+  --secondary-foreground: var(--ink);
+  --muted: #eeeee7;
+  --muted-foreground: #61685f;
+  --accent: #dbe4d6;
+  --accent-foreground: var(--ink);
+  --destructive: #a7433d;
+  --border: var(--border-subtle);
+  --input: var(--border-subtle);
+  --ring: #263d70;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), sans-serif;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-width: 20rem;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--sage) 60%, white);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+.site-container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 48rem) {
+  .site-container {
+    width: min(100% - 4rem, 72rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
