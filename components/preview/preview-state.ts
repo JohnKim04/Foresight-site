@@ -26,10 +26,10 @@ export type PreviewAction =
   | { type: "restart" };
 
 export const SOURCE_NOTE =
-  "I almost skipped my workout today, but I did 30 minutes after work. I was low-energy going in and felt calmer afterward.";
+  "I almost skipped my workout today, but I did 30 minutes after work. I was low-energy going in and felt better afterward.";
 
 export const PATTERN_STATEMENT =
-  "In 7 of 9 confirmed after-work workouts, you felt calmer later that evening.";
+  "In 7 of 9 confirmed after-work workouts, you felt better later that evening.";
 
 export const PATTERN_QUALIFIER =
   "This is an association from confirmed example data, not a cause-and-effect conclusion.";
@@ -40,15 +40,15 @@ export const CHECK_IN_RESPONSES = [
   "Much worse",
   "A little worse",
   "No change",
-  "A little calmer",
-  "Much calmer",
+  "A little better",
+  "Much better",
 ] as const;
 
 export const DEFAULT_FIELDS: PreviewFields = {
   activity: "After-work workout",
   duration: "30 minutes",
   startingEnergy: "Low",
-  outcome: "Felt calmer afterward.",
+  outcome: "Felt better afterward.",
 };
 
 export function createInitialPreviewState(): PreviewState {
