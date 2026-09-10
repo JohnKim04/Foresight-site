@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useReducer, useRef } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowLeft, ArrowRight, RotateCcw, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,19 +29,10 @@ const STEP_LABELS = {
 export function GuidedPreview() {
   const [state, dispatch] = useReducer(previewReducer, undefined, createInitialPreviewState);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const hasMounted = useRef(false);
+  const [shouldFocusStage, setShouldFocusStage] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const stepIndex = PREVIEW_STEPS.indexOf(state.step);
   const stepLabel = STEP_LABELS[state.step];
-
-  useEffect(() => {
-    if (!hasMounted.current) {
-      hasMounted.current = true;
-      return;
-    }
-
-    headingRef.current?.focus();
-  }, [state.step]);
 
   const status =
     state.step === "patterns"
@@ -55,6 +46,8 @@ export function GuidedPreview() {
       onUpdateField={(field, value) => dispatch({ type: "update-field", field, value })}
       onSetEnergy={(value) => dispatch({ type: "set-energy", value })}
       onSetCheckIn={(value) => dispatch({ type: "set-check-in", value })}
+      shouldFocus={shouldFocusStage}
+      onStageFocused={() => setShouldFocusStage(false)}
     />
   );
 
@@ -82,40 +75,36 @@ export function GuidedPreview() {
       <p className="sr-only" aria-live="polite">{status}</p>
 
       <AnimatePresence initial={false} mode="wait">
-        {shouldReduceMotion ? (
-          <div key={state.step} className="mt-8">{content}</div>
-        ) : (
-          <motion.div
-            key={state.step}
-            className="mt-8"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          >
-            {content}
-          </motion.div>
-        )}
+        <motion.div
+          key={state.step}
+          className="mt-8"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.2, ease: "easeOut" }}
+        >
+          {content}
+        </motion.div>
       </AnimatePresence>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
         <div>
           {stepIndex > 0 ? (
-            <Button type="button" variant="ghost" onClick={() => dispatch({ type: "back" })}>
+            <Button type="button" variant="ghost" onClick={() => { setShouldFocusStage(true); dispatch({ type: "back" }); }}>
               <ArrowLeft aria-hidden="true" />
               Back
             </Button>
           ) : null}
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Button type="button" variant="ghost" onClick={() => dispatch({ type: "restart" })}>
+          <Button type="button" variant="ghost" onClick={() => { setShouldFocusStage(true); dispatch({ type: "restart" }); }}>
             <RotateCcw aria-hidden="true" />
             Restart preview
           </Button>
           {state.step !== "patterns" ? (
             <Button
               type="button"
-              onClick={() => dispatch({ type: "next" })}
+              onClick={() => { setShouldFocusStage(true); dispatch({ type: "next" }); }}
               disabled={state.step === "check-in" && !state.checkIn}
             >
               {nextButtonLabel(state.step)}
@@ -134,9 +123,18 @@ type PreviewStepContentProps = {
   onUpdateField: (field: "activity" | "duration" | "outcome", value: string) => void;
   onSetEnergy: (value: EnergyLevel) => void;
   onSetCheckIn: (value: CheckInResponse) => void;
+  shouldFocus: boolean;
+  onStageFocused: () => void;
 };
 
-function PreviewStepContent({ state, headingRef, onUpdateField, onSetEnergy, onSetCheckIn }: PreviewStepContentProps) {
+function PreviewStepContent({ state, headingRef, onUpdateField, onSetEnergy, onSetCheckIn, shouldFocus, onStageFocused }: PreviewStepContentProps) {
+  useEffect(() => {
+    if (shouldFocus) {
+      headingRef.current?.focus();
+      onStageFocused();
+    }
+  }, [headingRef, onStageFocused, shouldFocus]);
+
   if (state.step === "log") {
     return (
       <div>
