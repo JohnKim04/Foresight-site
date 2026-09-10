@@ -39,7 +39,7 @@ describe("previewReducer", () => {
     const backToClarify = previewReducer(backToCheckIn, { type: "back" });
 
     expect(backToClarify.fields.activity).toBe("Evening run");
-    expect(backToClarify.checkIn).toBe("A little calmer");
+    expect(backToClarify.checkIn).toBe("A little better");
   });
 
   it("restarts with default fields and no selected check-in", () => {
@@ -54,7 +54,7 @@ describe("previewReducer", () => {
   });
 
   it("keeps the approved association-only evidence copy", () => {
-    expect(PATTERN_STATEMENT).toBe("In 7 of 9 confirmed after-work workouts, you felt calmer later that evening.");
+    expect(PATTERN_STATEMENT).toBe("In 7 of 9 confirmed after-work workouts, you felt better later that evening.");
     expect(PATTERN_QUALIFIER).toBe("This is an association from confirmed example data, not a cause-and-effect conclusion.");
   });
 });

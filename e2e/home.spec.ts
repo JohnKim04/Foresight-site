@@ -15,13 +15,13 @@ test("completes the fictional preview, preserves local edits, and restarts", asy
 
   const patternButton = page.getByRole("button", { name: "See example pattern" });
   await expect(patternButton).toBeDisabled();
-  const response = page.getByLabel("A little calmer");
+  const response = page.getByLabel("A little better");
   await response.focus();
   await response.press("Space");
   await expect(response).toBeChecked();
   await patternButton.click();
 
-  await expect(page.getByText("In 7 of 9 confirmed after-work workouts, you felt calmer later that evening.")).toBeVisible();
+  await expect(page.getByText("In 7 of 9 confirmed after-work workouts, you felt better later that evening.")).toBeVisible();
   await expect(page.getByText("This is an association from confirmed example data, not a cause-and-effect conclusion.")).toBeVisible();
 
   await page.getByRole("button", { name: "Back" }).click();
@@ -40,7 +40,7 @@ test("completes the preview with reduced motion enabled", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await reachCheckIn(page);
-  const response = page.getByLabel("Much calmer");
+  const response = page.getByLabel("Much better");
   await response.focus();
   await response.press("Space");
   await page.getByRole("button", { name: "See example pattern" }).click();
