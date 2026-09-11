@@ -7,10 +7,10 @@ import { SiteHeader } from "@/components/site-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const howItWorks = [
-  { title: "Capture", description: "Write or speak what happened in your own words.", icon: PenLine },
-  { title: "Clarify", description: "Review the suggested details before they become a record.", icon: Sparkles },
-  { title: "Check in", description: "Return later to note what changed after the moment.", icon: Clock3 },
-  { title: "Reflect", description: "See patterns built only from your confirmed entries.", icon: ChartNoAxesCombined },
+  { title: "Capture", description: "Write what happened in your own words today; voice capture is next.", availability: "Writing available · Voice planned", icon: PenLine },
+  { title: "Clarify", description: "Review suggested details before they become part of a future structured record.", availability: "AI-assisted review planned", icon: Sparkles },
+  { title: "Check in", description: "Return later to note what changed after the moment, when that context matters.", availability: "Planned", icon: Clock3 },
+  { title: "Reflect", description: "Review literal activity counts today, with richer confirmed reflections planned next.", availability: "Trends available · Evolving", icon: ChartNoAxesCombined },
 ];
 
 const principles = [
@@ -39,7 +39,7 @@ export default function Home() {
               <li><a className="rounded-sm hover:text-ink" href="#principles">Principles</a></li>
             </ul>
           </nav>
-          <span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">MVP in progress</span>
+          <span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">Mobile MVP available</span>
         </div>
       </SiteHeader>
 
@@ -48,7 +48,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <p className="text-sm font-medium tracking-wide text-indigo">A consequence journal</p>
             <h1 id="hero-heading" className="mt-4 font-display text-5xl leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-7xl">Notice what your choices change.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Foresight turns natural notes into confirmed personal evidence—so you can reflect on what actually changes over time.</p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Start by writing down what happened. Today&apos;s mobile journal keeps your own words, optional categories, and simple activity Trends; voice, AI-assisted clarity, and follow-up check-ins are where Foresight is headed.</p>
             <a href="#preview" className="mt-8 inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">
               Explore the preview <ArrowDownRight aria-hidden="true" className="size-4" />
             </a>
@@ -64,19 +64,19 @@ export default function Home() {
         </section>
 
         <section id="how-it-works" className="site-container py-section" aria-labelledby="how-it-works-heading">
-          <SectionHeading id="how-it-works-heading" title="A small practice of paying attention." eyebrow="How it works" description="Start with the moments you would otherwise lose track of. Foresight helps you return with more context." />
+          <SectionHeading id="how-it-works-heading" title="A small practice of paying attention." eyebrow="How it works" description="Start with the moments you would otherwise lose track of. The MVP is simple by design; the longer-term practice adds context over time." />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {howItWorks.map(({ title, description, icon: Icon }) => (
+            {howItWorks.map(({ title, description, availability, icon: Icon }) => (
               <Card key={title} className="border border-border shadow-none">
                 <CardHeader><span className="mb-3 grid size-9 place-items-center rounded-md bg-sage/30 text-indigo"><Icon aria-hidden="true" className="size-4" /></span><CardTitle className="font-display text-2xl tracking-tight">{title}</CardTitle></CardHeader>
-                <CardContent className="text-sm leading-6 text-muted-foreground">{description}</CardContent>
+                <CardContent><p className="text-sm leading-6 text-muted-foreground">{description}</p><p className="mt-4 text-xs font-medium text-indigo">{availability}</p></CardContent>
               </Card>
             ))}
           </div>
         </section>
 
         <section id="preview" className="site-container py-section" aria-labelledby="preview-heading">
-          <SectionHeading id="preview-heading" title="A clearer return to a familiar moment." eyebrow="Guided preview" description="A fictional example of how a note can become a confirmed record." />
+          <SectionHeading id="preview-heading" title="A clearer return to a familiar moment." eyebrow="Future product preview" description="A fictional preview of the voice, AI-assisted, and follow-up workflow Foresight is building toward. These steps are not in today&apos;s mobile MVP." />
           <div className="mt-10 max-w-3xl">
             <PreviewShell>
               <GuidedPreview />
@@ -86,7 +86,7 @@ export default function Home() {
 
         <section id="principles" className="border-y border-border bg-sage/10 py-section" aria-labelledby="principles-heading">
           <div className="site-container grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:items-start">
-            <SectionHeading id="principles-heading" title="Evidence should stay human." eyebrow="Principles" description="The useful part of reflection is not a verdict. It is a record you can understand and challenge." />
+            <SectionHeading id="principles-heading" title="Evidence should stay human." eyebrow="Principles" description="The useful part of reflection is not a verdict. It is a record you can understand and challenge—whether it is written today or enriched by future tools." />
             <ul className="grid gap-3 sm:grid-cols-2" role="list">
               {principles.map((principle, index) => <li key={principle} className="rounded-lg border border-border bg-card px-5 py-5 text-sm leading-6 text-ink shadow-sm"><span className="mr-3 font-display text-lg text-indigo">0{index + 1}</span>{principle}</li>)}
             </ul>
@@ -95,7 +95,7 @@ export default function Home() {
       </main>
 
       <SiteFooter>
-        <div className="flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between"><div className="flex items-center gap-3"><span className="font-display text-2xl tracking-tight text-ink">Foresight</span><span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">MVP in progress</span></div><p className="max-w-md text-sm leading-6 text-muted-foreground">This simulated preview is for product demonstration only and is not medical advice.</p></div>
+        <div className="flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between"><div className="flex items-center gap-3"><span className="font-display text-2xl tracking-tight text-ink">Foresight</span><span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">Mobile MVP available</span></div><p className="max-w-md text-sm leading-6 text-muted-foreground">The current MVP includes writing, optional categories, and Trends. This simulated preview shows the planned direction and is not medical advice.</p></div>
       </SiteFooter>
     </div>
   );
