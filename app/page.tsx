@@ -8,17 +8,17 @@ import { SiteHeader } from "@/components/site-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const howItWorks = [
-  { title: "Capture", description: "Write what happened in your own words today; voice capture is next.", availability: "Writing available · Voice planned", icon: PenLine },
-  { title: "Clarify", description: "Review suggested details before they become part of a future structured record.", availability: "AI-assisted review planned", icon: Sparkles },
-  { title: "Check in", description: "Return later to note what changed after the moment, when that context matters.", availability: "Planned", icon: Clock3 },
-  { title: "Reflect", description: "Review literal activity counts today, with richer confirmed reflections planned next.", availability: "Trends available · Evolving", icon: ChartNoAxesCombined },
+  { title: "Write", description: "Keep a note in your own words. Voice notes are in the works.", availability: "Available now", icon: PenLine },
+  { title: "Add detail", description: "Future versions may help turn a note into a few editable details.", availability: "In development", icon: Sparkles },
+  { title: "Check in", description: "Add a later note when you want more context around a moment.", availability: "Planned", icon: Clock3 },
+  { title: "Look back", description: "See activity counts by category and revisit the logs behind them.", availability: "Available now", icon: ChartNoAxesCombined },
 ];
 
 const principles = [
   "Original words remain visible.",
-  "AI suggestions are editable.",
-  "Only confirmed records inform patterns.",
-  "Future nudges are opt-in and explainable.",
+  "Any added details stay editable.",
+  "Trends reflect the logs you saved.",
+  "Future reminders stay optional.",
 ];
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
               <li><a className="rounded-sm hover:text-ink" href="#principles">Principles</a></li>
             </ul>
           </nav>
-          <span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">Mobile MVP available</span>
+          <span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">Mobile app</span>
         </div>
       </SiteHeader>
 
@@ -50,7 +50,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <p className="text-sm font-medium tracking-wide text-indigo">A consequence journal</p>
             <h1 id="hero-heading" className="mt-4 font-display text-5xl leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-7xl">Notice what your choices change.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Start by writing down what happened. Today&apos;s mobile journal keeps your own words, optional categories, and simple activity Trends; voice, AI-assisted clarity, and follow-up check-ins are where Foresight is headed.</p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Foresight is a journal for free-form notes. Add categories if they help, then look back at the activity you have logged. Voice notes, editable suggestions, and check-ins are in the works.</p>
             <a href="#preview" className="mt-8 inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">
               Explore the preview <ArrowDownRight aria-hidden="true" className="size-4" />
             </a>
@@ -61,7 +61,7 @@ export default function Home() {
           <div aria-hidden="true" className="relative mx-auto w-full max-w-md">
             <div className="absolute -inset-4 -rotate-3 rounded-xl border border-sage/60 bg-sage/20" />
             <div className="relative rounded-xl border border-border bg-card p-5 shadow-elevated sm:p-7">
-              <div className="flex items-center justify-between text-xs font-medium tracking-wide text-muted-foreground"><span>THIS EVENING</span><span className="rounded-full bg-sage/30 px-2 py-1 text-ink">confirmed</span></div>
+              <div className="flex items-center justify-between text-xs font-medium tracking-wide text-muted-foreground"><span>THIS EVENING</span><span className="rounded-full bg-sage/30 px-2 py-1 text-ink">logged</span></div>
               <div className="mt-7 space-y-3"><div className="h-2 w-4/5 rounded-full bg-ink/80" /><div className="h-2 w-full rounded-full bg-ink/15" /><div className="h-2 w-3/5 rounded-full bg-ink/15" /></div>
               <div className="mt-8 rounded-lg border border-border bg-canvas p-4"><div className="flex items-end gap-2"><span className="h-8 w-2 rounded-t-sm bg-sage" /><span className="h-12 w-2 rounded-t-sm bg-sage" /><span className="h-7 w-2 rounded-t-sm bg-sage" /><span className="h-16 w-2 rounded-t-sm bg-indigo" /><span className="h-11 w-2 rounded-t-sm bg-sage" /><span className="h-20 w-2 rounded-t-sm bg-indigo" /><span className="h-14 w-2 rounded-t-sm bg-sage" /></div><div className="mt-3 h-px w-full bg-border" /></div>
             </div>
@@ -70,14 +70,14 @@ export default function Home() {
 
         <section id="app" className="border-y border-border bg-sage/10 py-section" aria-labelledby="app-heading">
           <div className="site-container">
-            <SectionHeading id="app-heading" title="The app, today." eyebrow="Mobile MVP" description="The current iOS and Android experience keeps journaling focused: write freely, add categories when they help, and view literal activity Trends." />
+          <SectionHeading id="app-heading" title="The app." eyebrow="Mobile journal" description="Write freely, add categories when they help, and view activity Trends." />
             <div className="mt-8 flex flex-wrap gap-4"><a href="https://github.com/JohnKim04/Foresight" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90"><ArrowDownRight aria-hidden="true" className="size-4" />View app source</a><a href="#preview" className="inline-flex items-center gap-2 rounded-full border border-indigo px-5 py-3 text-sm font-medium text-indigo hover:bg-card">See what&apos;s next <ArrowDownRight aria-hidden="true" className="size-4" /></a></div>
             <div className="mt-10"><MobileAppPreview /></div>
           </div>
         </section>
 
         <section id="how-it-works" className="site-container py-section" aria-labelledby="how-it-works-heading">
-          <SectionHeading id="how-it-works-heading" title="A small practice of paying attention." eyebrow="How it works" description="Start with the moments you would otherwise lose track of. The MVP is simple by design; the longer-term practice adds context over time." />
+          <SectionHeading id="how-it-works-heading" title="A small practice of paying attention." eyebrow="How it works" description="Write down the moments you want to remember. Add more context over time if it helps." />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {howItWorks.map(({ title, description, availability, icon: Icon }) => (
               <Card key={title} className="border border-border shadow-none">
@@ -89,7 +89,7 @@ export default function Home() {
         </section>
 
         <section id="preview" className="site-container py-section" aria-labelledby="preview-heading">
-          <SectionHeading id="preview-heading" title="A clearer return to a familiar moment." eyebrow="Future product preview" description="A fictional preview of the voice, AI-assisted, and follow-up workflow Foresight is building toward. These steps are not in today&apos;s mobile MVP." />
+          <SectionHeading id="preview-heading" title="A clearer return to a familiar moment." eyebrow="A look ahead" description="An early concept for voice notes, editable suggestions, and follow-up check-ins." />
           <div className="mt-10 max-w-3xl">
             <PreviewShell>
               <GuidedPreview />
@@ -99,7 +99,7 @@ export default function Home() {
 
         <section id="principles" className="border-y border-border bg-sage/10 py-section" aria-labelledby="principles-heading">
           <div className="site-container grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:items-start">
-            <SectionHeading id="principles-heading" title="Evidence should stay human." eyebrow="Principles" description="The useful part of reflection is not a verdict. It is a record you can understand and challenge—whether it is written today or enriched by future tools." />
+            <SectionHeading id="principles-heading" title="Keep the record simple." eyebrow="Principles" description="The useful part of reflection is a record you can understand and return to." />
             <ul className="grid gap-3 sm:grid-cols-2" role="list">
               {principles.map((principle, index) => <li key={principle} className="rounded-lg border border-border bg-card px-5 py-5 text-sm leading-6 text-ink shadow-sm"><span className="mr-3 font-display text-lg text-indigo">0{index + 1}</span>{principle}</li>)}
             </ul>
@@ -108,7 +108,7 @@ export default function Home() {
       </main>
 
       <SiteFooter>
-        <div className="flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between"><div className="flex items-center gap-3"><span className="font-display text-2xl tracking-tight text-ink">Foresight</span><span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">Mobile MVP available</span></div><p className="max-w-md text-sm leading-6 text-muted-foreground">The current MVP includes writing, optional categories, and Trends. This simulated preview shows the planned direction and is not medical advice.</p></div>
+        <div className="flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between"><div className="flex items-center gap-3"><span className="font-display text-2xl tracking-tight text-ink">Foresight</span><span className="rounded-full border border-sage bg-sage/20 px-3 py-1 text-xs font-medium text-ink">Mobile app</span></div><p className="max-w-md text-sm leading-6 text-muted-foreground">The mobile app includes writing, categories, and Trends. The preview sketches a few features we are exploring.</p></div>
       </SiteFooter>
     </div>
   );

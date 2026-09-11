@@ -29,10 +29,10 @@ export const SOURCE_NOTE =
   "I almost skipped my workout today, but I did 30 minutes after work. I was low-energy going in and felt better afterward.";
 
 export const PATTERN_STATEMENT =
-  "In 7 of 9 confirmed after-work workouts, you felt better later that evening.";
+  "Seven of nine after-work workout logs included a better evening.";
 
 export const PATTERN_QUALIFIER =
-  "This is an association from confirmed example data, not a cause-and-effect conclusion.";
+  "A small sample to revisit.";
 
 export const ENERGY_LEVELS: readonly EnergyLevel[] = ["Low", "Steady", "High"];
 
