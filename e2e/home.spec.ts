@@ -2,14 +2,14 @@ import { expect, test, type Page } from "@playwright/test";
 
 async function reachCheckIn(page: Page) {
   await page.getByRole("link", { name: "Explore the preview" }).click();
-  await page.getByRole("button", { name: "Continue to clarify" }).click();
+  await page.getByRole("button", { name: "Add details" }).click();
   await page.getByLabel("Activity").fill("Evening run");
-  await page.getByRole("button", { name: "Confirm details" }).click();
+  await page.getByRole("button", { name: "Continue" }).click();
 }
 
 test("completes the fictional preview, preserves local edits, and restarts", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveTitle("Foresight — Notice what your choices change.");
+  await expect(page).toHaveTitle("Foresight: Notice what your choices change.");
   await expect(page.getByRole("heading", { name: "Notice what your choices change." })).toBeVisible();
   await reachCheckIn(page);
 
@@ -21,13 +21,13 @@ test("completes the fictional preview, preserves local edits, and restarts", asy
   await expect(response).toBeChecked();
   await patternButton.click();
 
-  await expect(page.getByText("In 7 of 9 confirmed after-work workouts, you felt better later that evening.")).toBeVisible();
-  await expect(page.getByText("This is an association from confirmed example data, not a cause-and-effect conclusion.")).toBeVisible();
+  await expect(page.getByText("Seven of nine after-work workout logs included a better evening.")).toBeVisible();
+  await expect(page.getByText("A small sample to revisit.")).toBeVisible();
 
   await page.getByRole("button", { name: "Back" }).click();
   await page.getByRole("button", { name: "Back" }).click();
   await expect(page.getByLabel("Activity")).toHaveValue("Evening run");
-  await page.getByRole("button", { name: "Confirm details" }).click();
+  await page.getByRole("button", { name: "Continue" }).click();
   await expect(response).toBeChecked();
   await patternButton.click();
   await page.getByRole("button", { name: "Restart preview" }).click();
@@ -45,13 +45,13 @@ test("completes the preview with reduced motion enabled", async ({ page }) => {
   await response.press("Space");
   await page.getByRole("button", { name: "See example pattern" }).click();
 
-  await expect(page.getByRole("heading", { name: "A pattern worth revisiting." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Something to look at again." })).toBeVisible();
 });
 
 test("shows the current mobile app and links to its source", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { name: "The app, today." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "The app." })).toBeVisible();
   await expect(page.getByText("All activity")).toBeVisible();
   await expect(page.getByRole("link", { name: "View app source" })).toHaveAttribute("href", "https://github.com/JohnKim04/Foresight");
 });

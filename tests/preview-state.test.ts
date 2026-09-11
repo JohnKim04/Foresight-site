@@ -53,8 +53,8 @@ describe("previewReducer", () => {
     expect(previewReducer(changedState, { type: "restart" })).toEqual(createInitialPreviewState());
   });
 
-  it("keeps the approved association-only evidence copy", () => {
-    expect(PATTERN_STATEMENT).toBe("In 7 of 9 confirmed after-work workouts, you felt better later that evening.");
-    expect(PATTERN_QUALIFIER).toBe("This is an association from confirmed example data, not a cause-and-effect conclusion.");
+  it("keeps the concise example reflection copy", () => {
+    expect(PATTERN_STATEMENT).toBe("Seven of nine after-work workout logs included a better evening.");
+    expect(PATTERN_QUALIFIER).toBe("A small sample to revisit.");
   });
 });

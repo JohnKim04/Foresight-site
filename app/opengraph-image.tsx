@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site-config";
 
-export const alt = "Foresight — Notice what your choices change.";
+export const alt = "Foresight: Notice what your choices change.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -43,7 +43,7 @@ export default function OpenGraphImage() {
             </div>
           </div>
           <div style={{ color: "#61685f", display: "flex", fontFamily: "Arial, sans-serif", fontSize: 22, lineHeight: 1.4, maxWidth: 560 }}>
-            Turn natural notes into confirmed personal evidence.
+            Write it down. Look back later.
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function OpenGraphImage() {
           }}
         >
           <div style={{ color: "#61685f", display: "flex", fontFamily: "Arial, sans-serif", fontSize: 17, fontWeight: 600, justifyContent: "space-between", letterSpacing: 1.3 }}>
-            <span>CONFIRMED EXAMPLE</span>
+            <span>JOURNAL EXAMPLE</span>
             <span style={{ background: "#dbe4d6", borderRadius: 999, color: "#1c211d", padding: "6px 12px" }}>7 OF 9</span>
           </div>
           <div style={{ background: "#1c211d", borderRadius: 999, display: "flex", height: 13, marginTop: 50, width: "72%" }} />
