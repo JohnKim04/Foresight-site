@@ -58,7 +58,7 @@ export function GuidedPreview() {
           <p className="text-sm font-medium text-indigo">
             {stepIndex + 1} of 4 · {stepLabel}
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">Simulated preview · no data is collected</p>
+          <p className="mt-1 text-sm text-muted-foreground">Future workflow preview · no data is collected</p>
         </div>
         <span className="rounded-full bg-sage/25 px-3 py-1 text-xs font-medium text-ink">Fictional example</span>
       </div>
@@ -139,6 +139,7 @@ function PreviewStepContent({ state, headingRef, onUpdateField, onSetEnergy, onS
     return (
       <div>
         <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">Capture the moment as it happened.</h3>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">Today&apos;s MVP supports written logs. Voice capture is planned for this future workflow.</p>
         <blockquote className="mt-5 max-w-2xl border-l-2 border-sage pl-5 text-lg leading-8 text-ink">“{SOURCE_NOTE}”</blockquote>
       </div>
     );
@@ -148,7 +149,7 @@ function PreviewStepContent({ state, headingRef, onUpdateField, onSetEnergy, onS
     return (
       <div>
         <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">Confirm what this note means.</h3>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">Suggestions are editable and stay in this browser only.</p>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">AI suggestions are planned, always editable, and shown here as a fictional example.</p>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <EditableField id="preview-activity" label="Activity" value={state.fields.activity} onChange={(value) => onUpdateField("activity", value)} />
           <EditableField id="preview-duration" label="Duration" value={state.fields.duration} onChange={(value) => onUpdateField("duration", value)} />
@@ -173,7 +174,7 @@ function PreviewStepContent({ state, headingRef, onUpdateField, onSetEnergy, onS
     return (
       <div>
         <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">How did the workout affect your evening?</h3>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">Choose a response to complete this fictional example.</p>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">Optional follow-up check-ins are planned. Choose a response to complete this fictional example.</p>
         <fieldset className="mt-6">
           <legend className="sr-only">Evening check-in response</legend>
           <div className="grid gap-2 sm:grid-cols-5">
@@ -195,7 +196,7 @@ function PreviewStepContent({ state, headingRef, onUpdateField, onSetEnergy, onS
       <div className="mt-6 rounded-lg border border-sage bg-sage/15 p-5">
         <div className="flex items-start gap-3"><Sparkles aria-hidden="true" className="mt-1 size-4 shrink-0 text-indigo" /><p className="text-lg leading-8 text-ink">{PATTERN_STATEMENT}</p></div>
       </div>
-      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">{PATTERN_QUALIFIER}</p>
+      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">This planned reflection surface would use confirmed records only. {PATTERN_QUALIFIER}</p>
     </div>
   );
 }
