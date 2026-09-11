@@ -48,6 +48,14 @@ test("completes the preview with reduced motion enabled", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "A pattern worth revisiting." })).toBeVisible();
 });
 
+test("shows the current mobile app and links to its source", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.getByRole("heading", { name: "The app, today." })).toBeVisible();
+  await expect(page.getByText("All activity")).toBeVisible();
+  await expect(page.getByRole("link", { name: "View app source" })).toHaveAttribute("href", "https://github.com/JohnKim04/Foresight");
+});
+
 test("serves the public metadata routes", async ({ request }) => {
   const robots = await request.get("/robots.txt");
   const openGraphImage = await request.get("/opengraph-image");

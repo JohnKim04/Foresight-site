@@ -1,4 +1,5 @@
 import { ArrowDownRight, ChartNoAxesCombined, Clock3, PenLine, Sparkles } from "lucide-react";
+import { MobileAppPreview } from "@/components/mobile-app-preview";
 import { PreviewShell } from "@/components/preview-shell";
 import { GuidedPreview } from "@/components/preview/guided-preview";
 import { SectionHeading } from "@/components/section-heading";
@@ -35,6 +36,7 @@ export default function Home() {
           <nav aria-label="Primary navigation" className="order-3 w-full sm:order-none sm:w-auto">
             <ul className="flex items-center justify-between gap-4 text-sm text-muted-foreground sm:justify-start sm:gap-6">
               <li><a className="rounded-sm hover:text-ink" href="#how-it-works">How it works</a></li>
+              <li><a className="rounded-sm hover:text-ink" href="#app">The app</a></li>
               <li><a className="rounded-sm hover:text-ink" href="#preview">Preview</a></li>
               <li><a className="rounded-sm hover:text-ink" href="#principles">Principles</a></li>
             </ul>
@@ -52,6 +54,9 @@ export default function Home() {
             <a href="#preview" className="mt-8 inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">
               Explore the preview <ArrowDownRight aria-hidden="true" className="size-4" />
             </a>
+            <a href="https://github.com/JohnKim04/Foresight" target="_blank" rel="noreferrer" className="ml-4 inline-flex items-center gap-2 text-sm font-medium text-indigo hover:text-ink">
+              <ArrowDownRight aria-hidden="true" className="size-4" />View the app on GitHub
+            </a>
           </div>
           <div aria-hidden="true" className="relative mx-auto w-full max-w-md">
             <div className="absolute -inset-4 -rotate-3 rounded-xl border border-sage/60 bg-sage/20" />
@@ -60,6 +65,14 @@ export default function Home() {
               <div className="mt-7 space-y-3"><div className="h-2 w-4/5 rounded-full bg-ink/80" /><div className="h-2 w-full rounded-full bg-ink/15" /><div className="h-2 w-3/5 rounded-full bg-ink/15" /></div>
               <div className="mt-8 rounded-lg border border-border bg-canvas p-4"><div className="flex items-end gap-2"><span className="h-8 w-2 rounded-t-sm bg-sage" /><span className="h-12 w-2 rounded-t-sm bg-sage" /><span className="h-7 w-2 rounded-t-sm bg-sage" /><span className="h-16 w-2 rounded-t-sm bg-indigo" /><span className="h-11 w-2 rounded-t-sm bg-sage" /><span className="h-20 w-2 rounded-t-sm bg-indigo" /><span className="h-14 w-2 rounded-t-sm bg-sage" /></div><div className="mt-3 h-px w-full bg-border" /></div>
             </div>
+          </div>
+        </section>
+
+        <section id="app" className="border-y border-border bg-sage/10 py-section" aria-labelledby="app-heading">
+          <div className="site-container">
+            <SectionHeading id="app-heading" title="The app, today." eyebrow="Mobile MVP" description="The current iOS and Android experience keeps journaling focused: write freely, add categories when they help, and view literal activity Trends." />
+            <div className="mt-8 flex flex-wrap gap-4"><a href="https://github.com/JohnKim04/Foresight" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90"><ArrowDownRight aria-hidden="true" className="size-4" />View app source</a><a href="#preview" className="inline-flex items-center gap-2 rounded-full border border-indigo px-5 py-3 text-sm font-medium text-indigo hover:bg-card">See what&apos;s next <ArrowDownRight aria-hidden="true" className="size-4" /></a></div>
+            <div className="mt-10"><MobileAppPreview /></div>
           </div>
         </section>
 
