@@ -1,60 +1,30 @@
 import { describe, expect, it } from "vitest";
-import {
-  CHECK_IN_RESPONSES,
-  createInitialPreviewState,
-  DEFAULT_FIELDS,
-  PATTERN_QUALIFIER,
-  PATTERN_STATEMENT,
-  previewReducer,
-} from "@/components/preview/preview-state";
+import { createInitialPreviewState, PATTERN_STATEMENT, previewReducer } from "@/components/preview/preview-state";
 
-describe("previewReducer", () => {
-  it("creates the approved default fictional record", () => {
-    expect(createInitialPreviewState()).toEqual({ step: "log", fields: DEFAULT_FIELDS, checkIn: null });
+describe("current-app preview", () => {
+  it("requires a journal entry before scheduling and a response before patterns", () => {
+    const emptyLog = previewReducer(createInitialPreviewState(), { type: "set-note", value: "   " });
+    expect(previewReducer(emptyLog, { type: "next" }).step).toBe("log");
+
+    const schedule = previewReducer(createInitialPreviewState(), { type: "next" });
+    const checkIn = previewReducer(schedule, { type: "next" });
+    expect(schedule.step).toBe("schedule");
+    expect(previewReducer(checkIn, { type: "next" }).step).toBe("check-in");
+    expect(previewReducer(previewReducer(checkIn, { type: "set-check-in", value: "Not sure" }), { type: "next" }).step).toBe("patterns");
   });
 
-  it("moves through Log, Clarify, and Check in", () => {
-    const clarify = previewReducer(createInitialPreviewState(), { type: "next" });
-    const checkIn = previewReducer(clarify, { type: "next" });
-
-    expect(clarify.step).toBe("clarify");
-    expect(checkIn.step).toBe("check-in");
-  });
-
-  it("does not reveal Patterns until a check-in response is selected", () => {
-    const checkIn = { ...createInitialPreviewState(), step: "check-in" as const };
-
-    expect(previewReducer(checkIn, { type: "next" })).toEqual(checkIn);
-  });
-
-  it("preserves edits and the selected response when navigating back", () => {
-    const clarified = previewReducer(
-      previewReducer(createInitialPreviewState(), { type: "next" }),
-      { type: "update-field", field: "activity", value: "Evening run" },
+  it("keeps edits while going back and clears them on restart", () => {
+    const edited = previewReducer(
+      previewReducer(createInitialPreviewState(), { type: "set-category", value: "Social" }),
+      { type: "set-note", value: "Had dinner with friends." },
     );
-    const checkIn = previewReducer(clarified, { type: "next" });
-    const answered = previewReducer(checkIn, { type: "set-check-in", value: CHECK_IN_RESPONSES[3] });
-    const patterns = previewReducer(answered, { type: "next" });
-    const backToCheckIn = previewReducer(patterns, { type: "back" });
-    const backToClarify = previewReducer(backToCheckIn, { type: "back" });
-
-    expect(backToClarify.fields.activity).toBe("Evening run");
-    expect(backToClarify.checkIn).toBe("A little better");
+    const scheduled = previewReducer(previewReducer(edited, { type: "next" }), { type: "set-schedule", value: "Later today" });
+    const back = previewReducer(previewReducer(scheduled, { type: "next" }), { type: "back" });
+    expect(back).toMatchObject({ step: "schedule", note: "Had dinner with friends.", category: "Social", schedule: "Later today" });
+    expect(previewReducer(back, { type: "restart" })).toEqual(createInitialPreviewState());
   });
 
-  it("restarts with default fields and no selected check-in", () => {
-    const changedState = {
-      ...createInitialPreviewState(),
-      step: "patterns" as const,
-      fields: { ...DEFAULT_FIELDS, duration: "45 minutes" },
-      checkIn: CHECK_IN_RESPONSES[4],
-    };
-
-    expect(previewReducer(changedState, { type: "restart" })).toEqual(createInitialPreviewState());
-  });
-
-  it("keeps the concise example reflection copy", () => {
-    expect(PATTERN_STATEMENT).toBe("Seven of nine after-work workout logs included a better evening.");
-    expect(PATTERN_QUALIFIER).toBe("A small sample to revisit.");
+  it("uses a sample pattern observed in the native QA fixtures", () => {
+    expect(PATTERN_STATEMENT).toBe("Workout was followed by feeling better in 10 of 12 later check-ins.");
   });
 });
