@@ -16,12 +16,13 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.productionUrl),
   title: siteConfig.title,
   description: siteConfig.description,
   applicationName: siteConfig.name,
   category: "Productivity",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/app-icon.png",
   },
   formatDetection: {
     telephone: false,
@@ -32,8 +33,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
+    url: siteConfig.productionUrl,
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,

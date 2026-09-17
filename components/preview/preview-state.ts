@@ -1,84 +1,53 @@
-export const PREVIEW_STEPS = ["log", "clarify", "check-in", "patterns"] as const;
+export const PREVIEW_STEPS = ["log", "schedule", "check-in", "patterns"] as const;
 
 export type PreviewStep = (typeof PREVIEW_STEPS)[number];
-export type EnergyLevel = "Low" | "Steady" | "High";
+export type PreviewCategory = "Workout" | "Work" | "Social";
+export type PreviewSchedule = "Later today" | "Tomorrow morning" | "Tomorrow evening";
 export type CheckInResponse = (typeof CHECK_IN_RESPONSES)[number];
-
-export type PreviewFields = {
-  activity: string;
-  duration: string;
-  startingEnergy: EnergyLevel;
-  outcome: string;
-};
 
 export type PreviewState = {
   step: PreviewStep;
-  fields: PreviewFields;
+  note: string;
+  category: PreviewCategory;
+  schedule: PreviewSchedule;
   checkIn: CheckInResponse | null;
 };
 
 export type PreviewAction =
-  | { type: "update-field"; field: Exclude<keyof PreviewFields, "startingEnergy">; value: string }
-  | { type: "set-energy"; value: EnergyLevel }
+  | { type: "set-note"; value: string }
+  | { type: "set-category"; value: PreviewCategory }
+  | { type: "set-schedule"; value: PreviewSchedule }
   | { type: "set-check-in"; value: CheckInResponse }
-  | { type: "next" }
-  | { type: "back" }
-  | { type: "restart" };
+  | { type: "next" | "back" | "restart" };
 
-export const SOURCE_NOTE =
-  "I almost skipped my workout today, but I did 30 minutes after work. I was low-energy going in and felt better afterward.";
+export const SOURCE_NOTE = "I almost skipped my workout today, but I did 30 minutes after work. I was low-energy going in and felt better afterward.";
+export const PATTERN_STATEMENT = "Workout was followed by feeling better in 10 of 12 later check-ins.";
+export const PATTERN_QUALIFIER = "Sample history. Foresight describes associations in your records, not causes.";
 
-export const PATTERN_STATEMENT =
-  "Seven of nine after-work workout logs included a better evening.";
-
-export const PATTERN_QUALIFIER =
-  "A small sample to revisit.";
-
-export const ENERGY_LEVELS: readonly EnergyLevel[] = ["Low", "Steady", "High"];
-
-export const CHECK_IN_RESPONSES = [
-  "Much worse",
-  "A little worse",
-  "No change",
-  "A little better",
-  "Much better",
-] as const;
-
-export const DEFAULT_FIELDS: PreviewFields = {
-  activity: "After-work workout",
-  duration: "30 minutes",
-  startingEnergy: "Low",
-  outcome: "Felt better afterward.",
-};
+export const PREVIEW_CATEGORIES: readonly PreviewCategory[] = ["Workout", "Work", "Social"];
+export const PREVIEW_SCHEDULES: readonly PreviewSchedule[] = ["Later today", "Tomorrow morning", "Tomorrow evening"];
+export const CHECK_IN_RESPONSES = ["Much worse", "A little worse", "About the same", "A little better", "Much better", "Not sure"] as const;
 
 export function createInitialPreviewState(): PreviewState {
-  return {
-    step: "log",
-    fields: { ...DEFAULT_FIELDS },
-    checkIn: null,
-  };
+  return { step: "log", note: SOURCE_NOTE, category: "Workout", schedule: "Tomorrow morning", checkIn: null };
 }
 
 export function previewReducer(state: PreviewState, action: PreviewAction): PreviewState {
   switch (action.type) {
-    case "update-field":
-      return { ...state, fields: { ...state.fields, [action.field]: action.value } };
-    case "set-energy":
-      return { ...state, fields: { ...state.fields, startingEnergy: action.value } };
-    case "set-check-in":
-      return { ...state, checkIn: action.value };
+    case "set-note": return { ...state, note: action.value };
+    case "set-category": return { ...state, category: action.value };
+    case "set-schedule": return { ...state, schedule: action.value };
+    case "set-check-in": return { ...state, checkIn: action.value };
     case "next": {
+      if (state.step === "log" && !state.note.trim()) return state;
       if (state.step === "check-in" && !state.checkIn) return state;
-      const stepIndex = PREVIEW_STEPS.indexOf(state.step);
-      const nextStep = PREVIEW_STEPS[stepIndex + 1];
+      const nextStep = PREVIEW_STEPS[PREVIEW_STEPS.indexOf(state.step) + 1];
       return nextStep ? { ...state, step: nextStep } : state;
     }
     case "back": {
-      const stepIndex = PREVIEW_STEPS.indexOf(state.step);
-      const previousStep = PREVIEW_STEPS[stepIndex - 1];
+      const previousStep = PREVIEW_STEPS[PREVIEW_STEPS.indexOf(state.step) - 1];
       return previousStep ? { ...state, step: previousStep } : state;
     }
-    case "restart":
-      return createInitialPreviewState();
+    case "restart": return createInitialPreviewState();
   }
 }
