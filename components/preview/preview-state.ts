@@ -2,7 +2,7 @@ export const PREVIEW_STEPS = ["log", "schedule", "check-in", "patterns"] as cons
 
 export type PreviewStep = (typeof PREVIEW_STEPS)[number];
 export type PreviewCategory = "Workout" | "Work" | "Social";
-export type PreviewSchedule = "Later today" | "Tomorrow morning" | "Tomorrow evening";
+export type PreviewSchedule = "In 2 hours" | "Tonight" | "Tomorrow morning";
 export type CheckInResponse = (typeof CHECK_IN_RESPONSES)[number];
 
 export type PreviewState = {
@@ -25,7 +25,7 @@ export const PATTERN_STATEMENT = "Workout was followed by feeling better in 10 o
 export const PATTERN_QUALIFIER = "Sample history. Foresight describes associations in your records, not causes.";
 
 export const PREVIEW_CATEGORIES: readonly PreviewCategory[] = ["Workout", "Work", "Social"];
-export const PREVIEW_SCHEDULES: readonly PreviewSchedule[] = ["Later today", "Tomorrow morning", "Tomorrow evening"];
+export const PREVIEW_SCHEDULES: readonly PreviewSchedule[] = ["In 2 hours", "Tonight", "Tomorrow morning"];
 export const CHECK_IN_RESPONSES = ["Much worse", "A little worse", "About the same", "A little better", "Much better", "Not sure"] as const;
 
 export function createInitialPreviewState(): PreviewState {

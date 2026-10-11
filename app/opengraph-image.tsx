@@ -39,7 +39,7 @@ export default async function OpenGraphImage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ color: "#34503f", fontFamily: "Arial, sans-serif", fontSize: 22, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase" }}>
-              A consequence journal
+              A reflection journal
             </div>
             <div style={{ fontFamily: "Georgia, serif", fontSize: 68, letterSpacing: -3, lineHeight: 1.02, marginTop: 22 }}>
               Notice what follows.

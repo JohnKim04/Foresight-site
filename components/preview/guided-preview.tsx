@@ -93,11 +93,11 @@ function PreviewStepContent({ state, headingRef, dispatch, focusToken }: { state
     return (
       <div>
         <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">Return when the effect is clearer.</h3>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">In the app, you can check in right away or schedule a later response. Scheduled check-ins appear in the app.</p>
-        <fieldset className="mt-6"><legend className="text-sm font-medium text-ink">Example follow-up time</legend><div className="mt-3 grid gap-2 sm:grid-cols-3">
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">In the app, you rate how you feel right after saving a log, then pick a later time in one tap. When it is due, a reminder shows the log and you can answer from the notification or the Check In tab.</p>
+        <fieldset className="mt-6"><legend className="text-sm font-medium text-ink">Example later time</legend><div className="mt-3 grid gap-2 sm:grid-cols-3">
           {PREVIEW_SCHEDULES.map((schedule) => <label key={schedule} className="cursor-pointer"><input className="peer sr-only" type="radio" name="preview-schedule" value={schedule} checked={state.schedule === schedule} onChange={() => dispatch({ type: "set-schedule", value: schedule })} /><span className="flex min-h-14 items-center justify-center rounded-md border border-border px-3 py-3 text-center text-sm text-muted-foreground peer-checked:border-indigo peer-checked:bg-indigo peer-checked:text-primary-foreground peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-indigo">{schedule}</span></label>)}
         </div></fieldset>
-        <p className="mt-5 rounded-lg bg-sage/15 p-4 text-sm leading-6 text-ink">Your {state.category.toLowerCase()} log would appear in the Check In queue for {state.schedule.toLowerCase()}.</p>
+        <p className="mt-5 rounded-lg bg-sage/15 p-4 text-sm leading-6 text-ink">A reminder for your {state.category.toLowerCase()} log would arrive {state.schedule.toLowerCase()}, and the check-in would wait in the Check In tab until you answer.</p>
       </div>
     );
   }
@@ -119,7 +119,7 @@ function PreviewStepContent({ state, headingRef, dispatch, focusToken }: { state
       <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">See what repeats across logs.</h3>
       <p className="mt-2 text-sm leading-6 text-muted-foreground">Your example response: {state.checkIn}. A single answer does not create a pattern.</p>
       <div className="mt-6 rounded-lg border border-sage bg-sage/15 p-5"><p className="text-xs font-bold uppercase tracking-wide text-indigo">Separate sample history · Workout · Later</p><p className="mt-3 text-lg leading-8 text-ink">{PATTERN_STATEMENT}</p></div>
-      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">{PATTERN_QUALIFIER} The app links summaries back to their source logs.</p>
+      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">{PATTERN_QUALIFIER} The app links summaries back to their source logs, and categories like this one show up under “Often followed by feeling better.”</p>
     </div>
   );
 }

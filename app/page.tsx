@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDownRight, ArrowUpRight, BookOpenText, CalendarClock, ChartNoAxesCombined, Mic2, Sparkles, BellRing } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, BellRing, BookOpenText, CalendarClock, ChartNoAxesCombined, LayoutGrid, Lightbulb, Mic2, Sparkles } from "lucide-react";
 import { MobileAppPreview } from "@/components/mobile-app-preview";
 import { PreviewShell } from "@/components/preview-shell";
 import { GuidedPreview } from "@/components/preview/guided-preview";
@@ -16,9 +16,9 @@ const currentFeatures = [
     detail: "Journal · available in the iOS build",
   },
   {
-    title: "Return at the right time",
+    title: "Say how it felt, twice",
     icon: CalendarClock,
-    description: "Record how you feel right after a moment or schedule a later check-in. The in-app queue shows due and upcoming responses; you can answer early, reschedule, skip, edit, or add a note.",
+    description: "Right after you log, rate how you feel and pick a later time in one tap: in 2 hours, tonight, or tomorrow morning. The Check In tab shows what is due, and you can answer early, reschedule, skip, edit, or add a note.",
     detail: "Check In · available in the iOS build",
   },
   {
@@ -27,12 +27,29 @@ const currentFeatures = [
     description: "See weekly and monthly activity, outcome mixes, changes over time, and immediate versus later responses. Summaries use conservative evidence thresholds and link to source logs.",
     detail: "Patterns · available in the iOS build",
   },
+  {
+    title: "See what tends to help",
+    icon: Lightbulb,
+    description: "An “Often followed by feeling better” card lists categories that have tended to be followed by feeling better in your recent later check-ins, and when in the day or week that holds. If you feel worse right after a log, it can show one of them.",
+    detail: "Suggestions · available in the iOS build",
+  },
+  {
+    title: "Get reminded, answer fast",
+    icon: BellRing,
+    description: "Opt-in reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour. Pattern nudges come at most once a day, and quiet hours hold both overnight.",
+    detail: "Notifications · available in the iOS build",
+  },
+  {
+    title: "Check in from the home screen",
+    icon: LayoutGrid,
+    description: "A Check-ins widget shows what is ready to answer on the home screen and counts on the lock screen. A Log widget starts a new entry in one tap.",
+    detail: "Widgets · available in the iOS build",
+  },
 ] as const;
 
 const plannedFeatures = [
   { title: "Speak a log", icon: Mic2, description: "Voice capture and transcription would make it easier to record a moment while it is still fresh." },
-  { title: "Review AI suggestions", icon: Sparkles, description: "AI could propose categories, context, feelings, and outcomes from a free-form entry. Your original words stay visible, and every suggestion remains editable before it is used." },
-  { title: "Get a timely nudge", icon: BellRing, description: "Opt-in notifications could invite a check-in or point to a pattern you have established in your own confirmed history, with an explanation of why it appeared." },
+  { title: "Suggested categories", icon: Sparkles, description: "An AI model could suggest categories from what you wrote, so similar moments line up without extra tagging. This would send the log text to an AI service. Your words stay as written, and nothing is applied until you pick it." },
 ] as const;
 
 export default function Home() {
@@ -58,9 +75,9 @@ export default function Home() {
       <main>
         <section className="site-container grid items-center gap-12 py-section md:grid-cols-[minmax(0,1.05fr)_minmax(19rem,0.85fr)] md:gap-16" aria-labelledby="hero-heading">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo">A consequence journal</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo">A reflection journal</p>
             <h1 id="hero-heading" className="mt-4 font-display text-5xl leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-7xl">Notice what follows.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Foresight helps you capture what happened, check in after its effects become clearer, and see patterns in your own history. The native iOS build already includes Journal, Check In, and Patterns.</p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Foresight helps you capture what happened, check in after its effects become clearer, and see patterns in your own history. The native iOS build includes Journal, Check In, and Patterns, with reminders, widgets, and suggestions drawn from your own check-ins.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href="#app" className="inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">Explore the iOS app <ArrowDownRight aria-hidden="true" className="size-4" /></a>
               <a href={siteConfig.links.iosSource} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-indigo hover:text-ink">View iOS source <ArrowUpRight aria-hidden="true" className="size-4" /></a>
@@ -92,7 +109,7 @@ export default function Home() {
 
         <section id="features" className="site-container py-section" aria-labelledby="features-heading">
           <SectionHeading id="features-heading" title="From a moment to a useful record." eyebrow="Available now" description="The current app is built around deliberate, editable records and source-backed summaries." />
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {currentFeatures.map(({ title, icon: Icon, description, detail }) => (
               <article key={title} className="rounded-xl border border-border bg-card p-6 shadow-sm">
                 <span className="grid size-11 place-items-center rounded-lg bg-sage/25 text-indigo"><Icon aria-hidden="true" className="size-5" /></span>
@@ -102,19 +119,19 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record.</p>
+          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, and quiet hours, and can export or erase the journal.</p>
         </section>
 
         <section id="preview" className="border-y border-border bg-sage/10 py-section" aria-labelledby="preview-heading">
           <div className="site-container grid gap-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1fr)] lg:gap-14">
-            <div><SectionHeading id="preview-heading" title="Try the journey." eyebrow="Interactive illustration" description="Walk through a sample log, a scheduled check-in, and a pattern from fictional history. The illustration follows features in the current app; it does not save your input." /></div>
+            <div><SectionHeading id="preview-heading" title="Try the journey." eyebrow="Interactive illustration" description="Walk through a sample log, a later check-in, and a pattern from fictional history. The illustration follows features in the current app; it does not save your input." /></div>
             <PreviewShell><GuidedPreview /></PreviewShell>
           </div>
         </section>
 
         <section id="vision" className="site-container py-section" aria-labelledby="vision-heading">
-          <SectionHeading id="vision-heading" title="Where Foresight is headed." eyebrow="Planned capabilities" description="The longer-term vision adds easier capture and timely help while keeping the person in control of the record and its interpretation." />
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <SectionHeading id="vision-heading" title="Where Foresight is headed." eyebrow="Planned capabilities" description="Next up: easier capture, while keeping the person in control of the record and its interpretation." />
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
             {plannedFeatures.map(({ title, icon: Icon, description }) => (
               <article key={title} className="rounded-xl border border-sage/60 bg-sage/10 p-6">
                 <Icon aria-hidden="true" className="size-6 text-indigo" />
@@ -124,14 +141,14 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">Voice, AI-assisted interpretation, and operating-system notifications are future work. Today, logs and categories are entered manually, and scheduled check-ins appear inside the app.</p>
+          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">Voice and AI suggestions are future work. Today, logs and categories are entered by hand.</p>
         </section>
       </main>
 
       <SiteFooter>
         <div className="flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3"><Image src="/app-icon.png" width={32} height={32} alt="" className="size-8 rounded-lg" /><span className="font-display text-2xl tracking-tight text-ink">Foresight</span></div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm"><a className="text-indigo hover:text-ink" href={siteConfig.links.iosSource} target="_blank" rel="noreferrer">Native iOS source ↗</a><a className="text-indigo hover:text-ink" href={siteConfig.links.mobileSource} target="_blank" rel="noreferrer">React Native source ↗</a><a className="text-indigo hover:text-ink" href={siteConfig.links.siteSource} target="_blank" rel="noreferrer">Website source ↗</a></div>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm"><a className="text-indigo hover:text-ink" href={siteConfig.links.iosSource} target="_blank" rel="noreferrer">Native iOS source ↗</a><a className="text-indigo hover:text-ink" href={siteConfig.links.mobileSource} target="_blank" rel="noreferrer">Earlier React Native version ↗</a><a className="text-indigo hover:text-ink" href={siteConfig.links.siteSource} target="_blank" rel="noreferrer">Website source ↗</a></div>
         </div>
       </SiteFooter>
     </div>

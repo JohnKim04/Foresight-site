@@ -18,9 +18,9 @@ describe("current-app preview", () => {
       previewReducer(createInitialPreviewState(), { type: "set-category", value: "Social" }),
       { type: "set-note", value: "Had dinner with friends." },
     );
-    const scheduled = previewReducer(previewReducer(edited, { type: "next" }), { type: "set-schedule", value: "Later today" });
+    const scheduled = previewReducer(previewReducer(edited, { type: "next" }), { type: "set-schedule", value: "In 2 hours" });
     const back = previewReducer(previewReducer(scheduled, { type: "next" }), { type: "back" });
-    expect(back).toMatchObject({ step: "schedule", note: "Had dinner with friends.", category: "Social", schedule: "Later today" });
+    expect(back).toMatchObject({ step: "schedule", note: "Had dinner with friends.", category: "Social", schedule: "In 2 hours" });
     expect(previewReducer(back, { type: "restart" })).toEqual(createInitialPreviewState());
   });
 

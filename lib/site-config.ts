@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Foresight",
   title: "Foresight: Notice what follows.",
   description:
-    "Foresight is a native iOS consequence journal. Write free-form logs, check in on outcomes, and explore source-backed patterns. Voice, AI suggestions, and proactive notifications are planned.",
+    "Foresight is a native iOS reflection journal. Write free-form logs, check in on how things turned out, get reminders and widgets, and see what has tended to be followed by feeling better. Voice and AI suggestions are planned.",
   productionUrl: "https://foresight-info.vercel.app",
   links: {
     iosSource: "https://github.com/JohnKim04/Foresight-iOS",
