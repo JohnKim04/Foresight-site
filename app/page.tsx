@@ -28,7 +28,7 @@ const currentFeatures = [
     detail: "Patterns · available in the iOS build",
   },
   {
-    title: "See what tends to help",
+    title: "What’s often followed by feeling better",
     icon: Lightbulb,
     description: "An “Often followed by feeling better” card lists categories that have tended to be followed by feeling better in your recent later check-ins, and when in the day or week that holds. If you feel worse right after a log, it can show one of them.",
     detail: "Suggestions · available in the iOS build",
@@ -36,7 +36,7 @@ const currentFeatures = [
   {
     title: "Get reminded, answer fast",
     icon: BellRing,
-    description: "Opt-in reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour. Pattern nudges come at most once a day, and quiet hours hold both overnight.",
+    description: "Reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour. Pattern nudges come at most once a day. During quiet hours, which you set, reminders wait until they end and nudges are skipped.",
     detail: "Notifications · available in the iOS build",
   },
   {
@@ -77,7 +77,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo">A reflection journal</p>
             <h1 id="hero-heading" className="mt-4 font-display text-5xl leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-7xl">Notice what follows.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Foresight helps you capture what happened, check in after its effects become clearer, and see patterns in your own history. The native iOS build includes Journal, Check In, and Patterns, with reminders, widgets, and suggestions drawn from your own check-ins.</p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Foresight helps you capture what happened, check in later on how it turned out, and see patterns in your own history. The native iOS build includes Journal, Check In, and Patterns, with reminders, widgets, and suggestions drawn from your own check-ins.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href="#app" className="inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">Explore the iOS app <ArrowDownRight aria-hidden="true" className="size-4" /></a>
               <a href={siteConfig.links.iosSource} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-indigo hover:text-ink">View iOS source <ArrowUpRight aria-hidden="true" className="size-4" /></a>
@@ -141,7 +141,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">Voice and AI suggestions are future work. Today, logs and categories are entered by hand.</p>
+          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">Voice and AI category suggestions are future work. Today, logs and categories are entered by hand.</p>
         </section>
       </main>
 

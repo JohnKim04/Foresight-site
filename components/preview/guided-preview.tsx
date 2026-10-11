@@ -92,7 +92,7 @@ function PreviewStepContent({ state, headingRef, dispatch, focusToken }: { state
   if (state.step === "schedule") {
     return (
       <div>
-        <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">Return when the effect is clearer.</h3>
+        <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">Come back to see how it turned out.</h3>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">In the app, you rate how you feel right after saving a log, then pick a later time in one tap. When it is due, a reminder shows the log and you can answer from the notification or the Check In tab.</p>
         <fieldset className="mt-6"><legend className="text-sm font-medium text-ink">Example later time</legend><div className="mt-3 grid gap-2 sm:grid-cols-3">
           {PREVIEW_SCHEDULES.map((schedule) => <label key={schedule} className="cursor-pointer"><input className="peer sr-only" type="radio" name="preview-schedule" value={schedule} checked={state.schedule === schedule} onChange={() => dispatch({ type: "set-schedule", value: schedule })} /><span className="flex min-h-14 items-center justify-center rounded-md border border-border px-3 py-3 text-center text-sm text-muted-foreground peer-checked:border-indigo peer-checked:bg-indigo peer-checked:text-primary-foreground peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-indigo">{schedule}</span></label>)}
