@@ -40,7 +40,7 @@ export function MobileAppPreview() {
           </figure>
         ))}
       </div>
-      <p className="mt-8 text-center text-xs leading-5 text-muted-foreground">Screens from the current native iOS QA build with removable sample history. Personal journal data is not shown.</p>
+      <p className="mt-8 text-center text-xs leading-5 text-muted-foreground">Screens from a September QA build with removable sample history; the current build has since had a design pass. Personal journal data is not shown.</p>
     </div>
   );
 }
