@@ -76,7 +76,6 @@ export default function Home() {
                 <FlowStep number="02" title="Check In" detail="Reflect now or later" />
                 <FlowStep number="03" title="Patterns" detail="Review the evidence" />
               </div>
-              <p className="mt-7 border-t border-border pt-5 text-sm leading-6 text-muted-foreground">Your entries stay on the device. No account or network connection is needed for the current core experience.</p>
             </div>
           </div>
         </section>
