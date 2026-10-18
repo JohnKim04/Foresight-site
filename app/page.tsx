@@ -12,13 +12,13 @@ const currentFeatures = [
   {
     title: "Keep the whole story",
     icon: BookOpenText,
-    description: "Write a free-form log in your own words. Add categories if useful, then edit, search, filter, or browse it by day on a timeline or calendar. The first run ends in the editor for your first log, or you can look around first.",
+    description: "Write a free-form log in your own words. Add categories if useful, then edit or search it. One Filter button narrows the list by date, category, or check-in, each active filter shows as a chip you can clear, and a toggle switches between a timeline and a calendar. The first run ends in the editor for your first log, or you can look around first.",
     detail: "Journal · available in the iOS build",
   },
   {
     title: "Say how it felt, twice",
     icon: CalendarClock,
-    description: "Right after you log, rate how you feel and pick a later time in one tap: in 2 hours, tonight, or tomorrow morning. The Check In tab shows what is due, and you can answer early, reschedule, skip, edit, or add a note.",
+    description: "Right after you log, rate how you feel in words, from Much worse through Same to Much better, and pick a later time in one tap: in 2 hours, tonight, or tomorrow morning. The Check In tab shows what is due, and you can answer early, reschedule, skip, edit, or add a note.",
     detail: "Check In · available in the iOS build",
   },
   {
@@ -119,7 +119,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, and quiet hours, and can export or erase the journal.</p>
+          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, and quiet hours, and can export or erase the journal. If Foresight has set aside an earlier copy of your journal, Settings lists it (up to three), and restoring one saves your current journal as a backup first, so you can switch back.</p>
         </section>
 
         <section id="preview" className="border-y border-border bg-sage/10 py-section" aria-labelledby="preview-heading">

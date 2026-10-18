@@ -34,8 +34,8 @@ test("walks through the sample flow and keeps edits until restart", async ({ pag
   await reachCheckIn(page);
   const patternButton = page.getByRole("button", { name: "See sample pattern" });
   await expect(patternButton).toBeDisabled();
-  await page.getByLabel("A little better").focus();
-  await page.getByLabel("A little better").press("Space");
+  await page.getByLabel("Better", { exact: true }).focus();
+  await page.getByLabel("Better", { exact: true }).press("Space");
   await patternButton.click();
   await expect(page.getByText("Workout was followed by feeling better in 10 of 12 later check-ins.")).toBeVisible();
   await page.getByRole("button", { name: "Back" }).click();
