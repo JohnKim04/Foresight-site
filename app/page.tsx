@@ -119,7 +119,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, and quiet hours, and can export or erase the journal. It also lists up to three earlier copies of the journal that Foresight keeps, and restoring one saves the journal as it is now as a backup first, so you can switch back.</p>
+          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, and quiet hours, and can export or erase the journal. If Foresight has set aside an earlier copy of your journal, Settings lists it (up to three), and restoring one saves your current journal as a backup first, so you can switch back.</p>
         </section>
 
         <section id="preview" className="border-y border-border bg-sage/10 py-section" aria-labelledby="preview-heading">
