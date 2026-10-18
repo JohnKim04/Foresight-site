@@ -10,7 +10,7 @@ describe("current-app preview", () => {
     const checkIn = previewReducer(schedule, { type: "next" });
     expect(schedule.step).toBe("schedule");
     expect(previewReducer(checkIn, { type: "next" }).step).toBe("check-in");
-    expect(previewReducer(previewReducer(checkIn, { type: "set-check-in", value: "Not sure" }), { type: "next" }).step).toBe("patterns");
+    expect(previewReducer(previewReducer(checkIn, { type: "set-check-in", value: "Not sure yet" }), { type: "next" }).step).toBe("patterns");
   });
 
   it("keeps edits while going back and clears them on restart", () => {

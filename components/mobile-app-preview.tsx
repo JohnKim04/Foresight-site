@@ -4,7 +4,7 @@ const screens = [
   {
     number: "01",
     title: "Journal",
-    description: "Write freely, tag moments, and return through search, filters, a timeline, or a calendar.",
+    description: "Write freely, tag moments, and return through search, one Filter button, a timeline, or a calendar.",
     image: "/screenshots/journal.png",
     alt: "Foresight iOS Journal showing search, timeline and category filters, and saved sample logs",
   },
@@ -40,7 +40,7 @@ export function MobileAppPreview() {
           </figure>
         ))}
       </div>
-      <p className="mt-8 text-center text-xs leading-5 text-muted-foreground">Screens from a September QA build with removable sample history; the current build has since had a design pass and a simpler, one-screen Patterns. Personal journal data is not shown.</p>
+      <p className="mt-8 text-center text-xs leading-5 text-muted-foreground">Screens from a September QA build with removable sample history; the current build has since had a design pass, a simpler, one-screen Patterns, a single Filter button in place of the filter card, and ratings shown as words such as Better instead of the older labels. Personal journal data is not shown.</p>
     </div>
   );
 }

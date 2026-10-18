@@ -106,7 +106,7 @@ function PreviewStepContent({ state, headingRef, dispatch, focusToken }: { state
     return (
       <div>
         <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">How did it feel later?</h3>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">Choose a response. In the app, you can add a note, edit your answer, or leave an atypical response out of summaries.</p>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">Choose a response. The app offers the same five ratings and a Not sure yet switch, and you can add a note, edit your answer, or leave an atypical response out of summaries.</p>
         <fieldset className="mt-6"><legend className="sr-only">Later check-in response</legend><div className="grid gap-2 sm:grid-cols-3">
           {CHECK_IN_RESPONSES.map((response) => <label key={response} className="cursor-pointer"><input className="peer sr-only" type="radio" name="later-check-in" value={response} checked={state.checkIn === response} onChange={() => dispatch({ type: "set-check-in", value: response })} /><span className="flex min-h-14 items-center justify-center rounded-md border border-border px-3 py-3 text-center text-sm text-muted-foreground peer-checked:border-indigo peer-checked:bg-indigo peer-checked:text-primary-foreground peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-indigo">{response}</span></label>)}
         </div></fieldset>

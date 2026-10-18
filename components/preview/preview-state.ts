@@ -26,7 +26,7 @@ export const PATTERN_QUALIFIER = "Sample history. Foresight describes associatio
 
 export const PREVIEW_CATEGORIES: readonly PreviewCategory[] = ["Workout", "Work", "Social"];
 export const PREVIEW_SCHEDULES: readonly PreviewSchedule[] = ["In 2 hours", "Tonight", "Tomorrow morning"];
-export const CHECK_IN_RESPONSES = ["Much worse", "A little worse", "About the same", "A little better", "Much better", "Not sure"] as const;
+export const CHECK_IN_RESPONSES = ["Much worse", "Worse", "Same", "Better", "Much better", "Not sure yet"] as const;
 
 export function createInitialPreviewState(): PreviewState {
   return { step: "log", note: SOURCE_NOTE, category: "Workout", schedule: "Tomorrow morning", checkIn: null };
