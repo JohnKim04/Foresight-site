@@ -119,7 +119,7 @@ function PreviewStepContent({ state, headingRef, dispatch, focusToken }: { state
       <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">See what repeats across logs.</h3>
       <p className="mt-2 text-sm leading-6 text-muted-foreground">Your example response: {state.checkIn}. A single answer does not create a pattern.</p>
       <div className="mt-6 rounded-lg border border-sage bg-sage/15 p-5"><p className="text-xs font-bold uppercase tracking-wide text-indigo">Separate sample history · Workout · Later</p><p className="mt-3 text-lg leading-8 text-ink">{PATTERN_STATEMENT}</p></div>
-      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">{PATTERN_QUALIFIER} The app links summaries back to their source logs, and categories like this one show up under “Often followed by feeling better.”</p>
+      <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground">{PATTERN_QUALIFIER} The app links summaries back to their source logs, and categories like this one show up under “Often followed by feeling better” on Patterns and at the top of the Journal.</p>
     </div>
   );
 }

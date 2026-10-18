@@ -12,7 +12,7 @@ const currentFeatures = [
   {
     title: "Keep the whole story",
     icon: BookOpenText,
-    description: "Write a free-form log in your own words. Add categories if useful, then edit, search, filter, or browse it by day on a timeline or calendar.",
+    description: "Write a free-form log in your own words. Add categories if useful, then edit, search, filter, or browse it by day on a timeline or calendar. The first run ends in the editor for your first log, or you can look around first.",
     detail: "Journal · available in the iOS build",
   },
   {
@@ -24,19 +24,19 @@ const currentFeatures = [
   {
     title: "Inspect what repeats",
     icon: ChartNoAxesCombined,
-    description: "See weekly and monthly activity, outcome mixes, changes over time, and immediate versus later responses. Summaries use conservative evidence thresholds and link to source logs.",
+    description: "Pick a category to see what has tended to follow it on one screen: how you felt right after and later over 30 or 90 days, how that has shifted, and how often you logged it each week. Summaries use conservative evidence thresholds and link to source logs.",
     detail: "Patterns · available in the iOS build",
   },
   {
     title: "What’s often followed by feeling better",
     icon: Lightbulb,
-    description: "An “Often followed by feeling better” card lists categories that have tended to be followed by feeling better in your recent later check-ins, and when in the day or week that holds. If you feel worse right after a log, it can show one of them.",
+    description: "An “Often followed by feeling better” card lists categories that have tended to be followed by feeling better in your later check-ins, and when in the day or week that holds. A handful of lucky answers or a pattern that has faded recently does not count. The strongest one you haven’t logged today sits at the top of the Journal, and if you feel worse right after a log, Foresight can show one.",
     detail: "Suggestions · available in the iOS build",
   },
   {
     title: "Get reminded, answer fast",
     icon: BellRing,
-    description: "Reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour. Pattern nudges come at most once a day. During quiet hours, which you set, reminders wait until they end and nudges are skipped.",
+    description: "Reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour, and the app icon counts check-ins waiting for an answer. Pattern nudges come at most once a day. During quiet hours, which you set, reminders wait until they end and nudges are skipped.",
     detail: "Notifications · available in the iOS build",
   },
   {
@@ -82,7 +82,7 @@ export default function Home() {
               <a href="#app" className="inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">Explore the iOS app <ArrowDownRight aria-hidden="true" className="size-4" /></a>
               <a href={siteConfig.links.iosSource} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-indigo hover:text-ink">View iOS source <ArrowUpRight aria-hidden="true" className="size-4" /></a>
             </div>
-            <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground">The project can be built from source. There is no App Store or TestFlight release yet.</p>
+            <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground">The project can be built from source, and with a Mac and Xcode, one script installs it on your own iPhone using a free Apple account. A free-account install has to be re-run every 7 days, and the journal is kept. There is no App Store or TestFlight release yet.</p>
           </div>
           <div className="relative mx-auto w-full max-w-md" aria-label="Foresight product flow">
             <div className="absolute -inset-4 -rotate-3 rounded-[2rem] border border-sage/60 bg-sage/20" aria-hidden="true" />
