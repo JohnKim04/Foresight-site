@@ -12,7 +12,7 @@ const currentFeatures = [
   {
     title: "Keep the whole story",
     icon: BookOpenText,
-    description: "Write a free-form log in your own words. Add categories if useful, then edit, search, filter, or browse it by day on a timeline or calendar. The first run ends by opening your first log.",
+    description: "Write a free-form log in your own words. Add categories if useful, then edit, search, filter, or browse it by day on a timeline or calendar. The first run ends in the editor for your first log, or you can look around first.",
     detail: "Journal · available in the iOS build",
   },
   {
@@ -82,7 +82,7 @@ export default function Home() {
               <a href="#app" className="inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">Explore the iOS app <ArrowDownRight aria-hidden="true" className="size-4" /></a>
               <a href={siteConfig.links.iosSource} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-indigo hover:text-ink">View iOS source <ArrowUpRight aria-hidden="true" className="size-4" /></a>
             </div>
-            <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground">The project can be built from source, and one script installs it on your own iPhone with a free Apple account. There is no App Store or TestFlight release yet.</p>
+            <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground">The project can be built from source, and with a Mac and Xcode, one script installs it on your own iPhone using a free Apple account. A free-account install has to be re-run every 7 days, and the journal is kept. There is no App Store or TestFlight release yet.</p>
           </div>
           <div className="relative mx-auto w-full max-w-md" aria-label="Foresight product flow">
             <div className="absolute -inset-4 -rotate-3 rounded-[2rem] border border-sage/60 bg-sage/20" aria-hidden="true" />
