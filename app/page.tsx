@@ -36,7 +36,7 @@ const currentFeatures = [
   {
     title: "Get reminded, answer fast",
     icon: BellRing,
-    description: "Reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour, and the app icon counts check-ins waiting for an answer. Pattern nudges come at most once a day. During quiet hours, which you set, reminders wait until they end and nudges are skipped.",
+    description: "Reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour, and the app icon counts check-ins waiting for an answer. Pattern nudges come at most once a day. If something you log has often been followed by feeling worse in later check-ins, a heads-up can arrive an hour before the time you usually log it, at most once a day, and it opens that pattern’s evidence. During quiet hours, which you set, reminders wait until they end, and nudges and heads-ups are skipped.",
     detail: "Notifications · available in the iOS build",
   },
   {
@@ -119,7 +119,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, and quiet hours, and can export or erase the journal. Once you have logged something, Foresight saves a backup of the journal each day you open it, keeping up to three backups. Settings lists them, and restoring one saves your current journal as a backup first, so you can switch back. If most of the journal is deleted, daily backups pause for up to 30 days so the earlier copies are kept.</p>
+          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, heads-ups, and quiet hours, and can export or erase the journal. Once you have logged something, Foresight saves a backup of the journal each day you open it, keeping up to three backups. Settings lists them, and restoring one saves your current journal as a backup first, so you can switch back. If most of the journal is deleted, daily backups pause for up to 30 days so the earlier copies are kept.</p>
         </section>
 
         <section id="preview" className="border-y border-border bg-sage/10 py-section" aria-labelledby="preview-heading">
