@@ -12,7 +12,7 @@ const currentFeatures = [
   {
     title: "Write it in your own words",
     icon: BookOpenText,
-    description: "Log what happened in a sentence or a page. Add a category if it helps you find it later, then come back through search, a filter, a timeline, or a calendar.",
+    description: "Log what happened in a sentence or a page. Add a category if you want to find it later, then come back through search, a filter, a timeline, or a calendar.",
     detail: "Journal",
   },
   {
@@ -36,7 +36,7 @@ const currentFeatures = [
   {
     title: "Reminders that don’t nag",
     icon: BellRing,
-    description: "A reminder arrives when a check-in is due, and you can answer it from the notification. Nudges about what has often been followed by feeling better come at most once a day, rest each category for three days, and have Log it and Less often buttons. A heads-up can come before the time you usually log something that has often been followed by feeling worse. Nothing arrives during quiet hours you set.",
+    description: "A reminder arrives when a check-in is due, and you can answer it from the notification. Nudges about what has often been followed by feeling better come at most once a day and at most every third day for any one category, with Log it and Less often buttons. A heads-up can come before the time you usually log something that has been followed by feeling worse more often than your other logs. Nothing arrives during quiet hours you set.",
     detail: "Notifications",
   },
   {
@@ -108,7 +108,7 @@ export default function Home() {
         </section>
 
         <section id="features" className="site-container py-section" aria-labelledby="features-heading">
-          <SectionHeading id="features-heading" title="From a moment to a useful record." eyebrow="Available now" description="Three tabs, a few reminders, and summaries you can trace back to what you wrote." />
+          <SectionHeading id="features-heading" title="From a moment to a useful record." eyebrow="In the iOS build" description="Three tabs, a few reminders, and summaries you can trace back to what you wrote." />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {currentFeatures.map(({ title, icon: Icon, description, detail }) => (
               <article key={title} className="rounded-xl border border-border bg-card p-6 shadow-sm">

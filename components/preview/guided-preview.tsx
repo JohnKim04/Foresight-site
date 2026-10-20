@@ -78,7 +78,7 @@ function PreviewStepContent({ state, headingRef, dispatch, focusToken }: { state
     return (
       <div>
         <h3 ref={headingRef} tabIndex={-1} className="font-display text-3xl tracking-tight text-ink">Write what happened.</h3>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">Keep your own words, then add a category if it helps you find this moment later.</p>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">Keep your own words, then add a category if you want to find this moment later.</p>
         <label className="mt-5 block text-sm font-medium text-ink">Journal entry
           <textarea className="mt-2 min-h-28 w-full rounded-lg border border-border bg-canvas p-4 text-base leading-7 text-ink" value={state.note} onChange={(event) => dispatch({ type: "set-note", value: event.target.value })} maxLength={5000} />
         </label>

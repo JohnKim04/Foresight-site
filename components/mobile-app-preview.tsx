@@ -40,7 +40,7 @@ export function MobileAppPreview() {
           </figure>
         ))}
       </div>
-      <p className="mt-8 text-center text-xs leading-5 text-muted-foreground">Screens from a September QA build with sample history. The app has changed since: ratings now show as words, Patterns opens on one simple view, and Check In has no filter bar. Personal journal data is not shown.</p>
+      <p className="mt-8 text-center text-xs leading-5 text-muted-foreground">Screens from a September 2026 build with sample history; the app has changed a little since.</p>
     </div>
   );
 }
