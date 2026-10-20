@@ -16,9 +16,9 @@ test("shows current iOS capabilities, authentic screenshots, and planned work se
   await page.goto("/");
   await expect(page).toHaveTitle("Foresight: Notice what follows.");
   await expect(page.getByRole("heading", { name: "The app, as it is today." })).toBeVisible();
-  await expect(page.getByText("Check In · available in the iOS build")).toBeVisible();
+  await expect(page.getByText("Say how it felt, then and later")).toBeVisible();
   await expect(page.getByText("Planned · not in the current build")).toHaveCount(2);
-  await expect(page.getByText("Notifications · available in the iOS build")).toBeVisible();
+  await expect(page.getByText("Reminders that don’t nag")).toBeVisible();
   await expect(page.getByRole("img", { name: /Foresight iOS Patterns showing/ })).toBeVisible();
   await expect(page.getByRole("link", { name: "View iOS source" })).toHaveAttribute("href", "https://github.com/JohnKim04/Foresight-iOS");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://foresight-info.vercel.app");
