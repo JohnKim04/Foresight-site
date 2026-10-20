@@ -30,7 +30,7 @@ const currentFeatures = [
   {
     title: "What’s often followed by feeling better",
     icon: Lightbulb,
-    description: "Once your own history shows it, Foresight points out the categories that are followed by feeling better more often than your other logs. The strongest one you haven’t logged today sits at the top of the Journal.",
+    description: "Once your own history shows it, Foresight points out the categories that are followed by feeling better more often than your other logs. Until then, the Journal shows how many later check-ins each category has toward the five a pattern needs. The strongest one you haven’t logged today sits at the top of the Journal.",
     detail: "Suggestions",
   },
   {
