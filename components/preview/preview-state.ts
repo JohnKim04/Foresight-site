@@ -29,7 +29,7 @@ export const PREVIEW_SCHEDULES: readonly PreviewSchedule[] = ["In 2 hours", "Ton
 export const CHECK_IN_RESPONSES = ["Much worse", "Worse", "Same", "Better", "Much better", "Not sure yet"] as const;
 
 export function createInitialPreviewState(): PreviewState {
-  return { step: "log", note: SOURCE_NOTE, category: "Workout", schedule: "Tomorrow morning", checkIn: null };
+  return { step: "log", note: SOURCE_NOTE, category: "Workout", schedule: "In 2 hours", checkIn: null };
 }
 
 export function previewReducer(state: PreviewState, action: PreviewAction): PreviewState {

@@ -10,40 +10,40 @@ import { siteConfig } from "@/lib/site-config";
 
 const currentFeatures = [
   {
-    title: "Keep the whole story",
+    title: "Write it in your own words",
     icon: BookOpenText,
-    description: "Write a free-form log in your own words. Add categories if useful, then edit or search it. One Filter button narrows the list by date, category, or check-in, each active filter shows as a chip you can clear, and a toggle switches between a timeline and a calendar. The first run ends in the editor for your first log, or you can look around first.",
-    detail: "Journal · available in the iOS build",
+    description: "Log what happened in a sentence or a page. Add a category if it helps you find it later, then come back through search, a filter, a timeline, or a calendar.",
+    detail: "Journal",
   },
   {
-    title: "Say how it felt, twice",
+    title: "Say how it felt, then and later",
     icon: CalendarClock,
-    description: "Right after you log, rate how you feel in words, from Much worse through Same to Much better, and pick a later time in one tap: in 2 hours, tonight, or tomorrow morning. The Check In tab shows what is due, and you can answer early, reschedule, skip, edit, or add a note.",
-    detail: "Check In · available in the iOS build",
+    description: "Rate how you feel right after a log, from Much worse to Much better. A later check-in in 2 hours is already picked, so you only change it if tonight or tomorrow morning fits better.",
+    detail: "Check In",
   },
   {
-    title: "Inspect what repeats",
+    title: "See what tends to follow",
     icon: ChartNoAxesCombined,
-    description: "Pick a category to see what has tended to follow it on one screen: how you felt right after and later over 30 or 90 days, how that has shifted, and how often you logged it each week. Summaries use conservative evidence thresholds and link to source logs.",
-    detail: "Patterns · available in the iOS build",
+    description: "Pick a category to see how you have usually felt after it, right away and later. Every summary links back to the logs behind it.",
+    detail: "Patterns",
   },
   {
     title: "What’s often followed by feeling better",
     icon: Lightbulb,
-    description: "An “Often followed by feeling better” card lists categories that have tended to be followed by feeling better in your later check-ins, and when in the day or week that holds. A handful of lucky answers or a pattern that has faded recently does not count. The strongest one you haven’t logged today sits at the top of the Journal, and if you feel worse right after a log, Foresight can show one.",
-    detail: "Suggestions · available in the iOS build",
+    description: "Once your own history shows it, Foresight points out the categories that are followed by feeling better more often than your other logs. The strongest one you haven’t logged today sits at the top of the Journal.",
+    detail: "Suggestions",
   },
   {
-    title: "Get reminded, answer fast",
+    title: "Reminders that don’t nag",
     icon: BellRing,
-    description: "Reminders arrive when a later check-in is due and show the start of the log. Answer from the notification’s buttons or ask again in an hour, and the app icon counts check-ins waiting for an answer. Pattern nudges come at most once a day. If something you log has often been followed by feeling worse in later check-ins, a heads-up can arrive an hour before the time you usually log it, at most once a day, and it opens that pattern’s evidence. During quiet hours, which you set, reminders wait until they end, and nudges and heads-ups are skipped.",
-    detail: "Notifications · available in the iOS build",
+    description: "A reminder arrives when a check-in is due, and you can answer it from the notification. Nudges about what has often been followed by feeling better come at most once a day, rest each category for three days, and have Log it and Less often buttons. A heads-up can come before the time you usually log something that has often been followed by feeling worse. Nothing arrives during quiet hours you set.",
+    detail: "Notifications",
   },
   {
     title: "Check in from the home screen",
     icon: LayoutGrid,
-    description: "A Check-ins widget shows what is ready to answer on the home screen and counts on the lock screen. A Log widget starts a new entry in one tap.",
-    detail: "Widgets · available in the iOS build",
+    description: "A widget shows what is ready to answer, and another starts a new log in one tap.",
+    detail: "Widgets",
   },
 ] as const;
 
@@ -77,12 +77,12 @@ export default function Home() {
           <div className="max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo">A reflection journal</p>
             <h1 id="hero-heading" className="mt-4 font-display text-5xl leading-[0.98] tracking-tight text-ink sm:text-6xl lg:text-7xl">Notice what follows.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Foresight helps you capture what happened, check in later on how it turned out, and see patterns in your own history. The native iOS build includes Journal, Check In, and Patterns, with reminders, widgets, and suggestions drawn from your own check-ins.</p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">Write down what happened, say how you feel right after and again a little later, and over time Foresight shows which things in your own life are more often followed by feeling better.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href="#app" className="inline-flex items-center gap-2 rounded-full bg-indigo px-5 py-3 text-sm font-medium text-primary-foreground shadow-elevated hover:bg-indigo/90">Explore the iOS app <ArrowDownRight aria-hidden="true" className="size-4" /></a>
               <a href={siteConfig.links.iosSource} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-indigo hover:text-ink">View iOS source <ArrowUpRight aria-hidden="true" className="size-4" /></a>
             </div>
-            <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground">The project can be built from source, and with a Mac and Xcode, one script installs it on your own iPhone using a free Apple account. A free-account install has to be re-run every 7 days, and the journal is kept. There is no App Store or TestFlight release yet.</p>
+            <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground">There is no App Store or TestFlight release yet. With a Mac and Xcode, one script installs it on your own iPhone with a free Apple account; re-run it every 7 days, and the journal is kept.</p>
           </div>
           <div className="relative mx-auto w-full max-w-md" aria-label="Foresight product flow">
             <div className="absolute -inset-4 -rotate-3 rounded-[2rem] border border-sage/60 bg-sage/20" aria-hidden="true" />
@@ -108,7 +108,7 @@ export default function Home() {
         </section>
 
         <section id="features" className="site-container py-section" aria-labelledby="features-heading">
-          <SectionHeading id="features-heading" title="From a moment to a useful record." eyebrow="Available now" description="The current app is built around deliberate, editable records and source-backed summaries." />
+          <SectionHeading id="features-heading" title="From a moment to a useful record." eyebrow="Available now" description="Three tabs, a few reminders, and summaries you can trace back to what you wrote." />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {currentFeatures.map(({ title, icon: Icon, description, detail }) => (
               <article key={title} className="rounded-xl border border-border bg-card p-6 shadow-sm">
@@ -119,7 +119,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern is described only after at least five rated check-ins, and only when the response direction is consistent enough to report. Foresight describes associations, never causes. You can leave an unusual response out of summaries without removing the original record. Settings controls reminders, nudges, heads-ups, and quiet hours, and can export or erase the journal. Once you have logged something, Foresight saves a backup of the journal each day you open it, keeping up to three backups. Settings lists them, and restoring one saves your current journal as a backup first, so you can switch back. If most of the journal is deleted, daily backups pause for up to 30 days so the earlier copies are kept.</p>
+          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">A pattern needs at least five rated later check-ins and has to stand out from your other logs. Foresight describes what tends to follow what, never causes. It keeps a daily backup of your journal, and Settings can export it, import an export, or restore a backup. If the journal ever fails to open, Foresight offers your backups before anything else.</p>
         </section>
 
         <section id="preview" className="border-y border-border bg-sage/10 py-section" aria-labelledby="preview-heading">
